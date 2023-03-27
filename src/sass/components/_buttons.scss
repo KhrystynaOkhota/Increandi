@@ -1,0 +1,138 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.btn {
+  position: relative;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Futura', serif;
+
+  padding: 15px;
+  font-weight: 500;
+  font-size: 16px;
+  @include fontSize(14, 16);
+  line-height: 24px;
+  border: none;
+  @include transition(.4);
+
+  &:focus {
+    outline: none;
+  }
+
+  &-primary {
+    @include fontSize(16, 22);
+    font-family: 'JosefinSans', sans-serif;
+    font-weight: 600;
+
+    color: $whiteColor;
+    background-color: $accentColor;
+    border: none;
+    border-radius: 30px;
+    padding: 13px 25px;
+    min-width: 140px;
+    cursor: pointer;
+    max-width: max-content;
+    @include transition(.3);
+    @media (max-width: $breakpoint-lg) {
+      padding: 6px 12px;
+    }
+
+    &:hover {
+      background-color: rgba(44, 97, 173, 0.7);
+    }
+  }
+
+  &-white {
+    color: $accentColor;
+    background-color: rgba(255, 255, 255, 1);
+    @include fontSize(15, 20);
+    min-width: 120px;
+    @media (max-width: $breakpoint-md) {
+      min-width: 150px;
+      padding: 9px;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, .4);
+    }
+  }
+
+  &-close {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+
+    &:after, &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%) rotate(45deg);
+      -ms-transform: translate(-50%, -50%) rotate(45deg);
+      transform: translate(-50%, -50%) rotate(45deg);
+      height: 1px;
+      width: 60%;
+      color: inherit;
+      background-color: $accentColor;
+    }
+
+    &::after {
+      -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+      -ms-transform: translate(-50%, -50%) rotate(-45deg);
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+  }
+
+  &-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    border: 1px solid $whiteColor;
+    cursor: pointer;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    @include transition(.4);
+    @media (max-width: $breakpoint-md) {
+      width: 23px;
+      height: 23px;
+    }
+
+    & i {
+      font-size: 8px;
+      color: $whiteColor;
+      @include transition(.4);
+    }
+
+    &:hover {
+      border-color: #C7C7C7;
+      -webkit-transform: translateX(15px);
+      -ms-transform: translateX(15px);
+      transform: translateX(15px);
+
+      & i {
+        color: #C7C7C7;
+      }
+    }
+  }
+
+  &-more {
+    color: #2C61AD;
+    display: inline-block;
+
+    & i {
+      padding-left: 5px;
+      @include fontSize(8, 10);
+    }
+  }
+
+}
+

@@ -1,0 +1,35 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+
+.s-gallery {
+  padding: 71px 0 120px 0;
+
+  & .swiper {
+    &-controls {
+      margin-bottom: 34px;
+    }
+
+    &-pagination {
+      @media (max-width: $breakpoint-md) {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 1;
+
+    &-wrap {
+      padding-top: 90%;
+      position: relative;
+      overflow: hidden;
+    }
+  }
+}

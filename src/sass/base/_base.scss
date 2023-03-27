@@ -107,7 +107,7 @@ body {
 
 
 .section {
-  overflow: hidden;
+//  overflow: hidden;
   position: relative;
 
   & .heading {
@@ -124,7 +124,7 @@ body {
 
 
 .main {
-
+overflow: hidden;
 
   &-wrapper {
     position: relative;

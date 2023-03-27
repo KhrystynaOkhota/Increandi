@@ -36,7 +36,8 @@
         </a>
 
 
-        <a href="mailto:info@increandi.com" class="header-email"><span>info@increandi.com</span></a>
+        <a href="mailto:info@increandi.com" class="header-email d-flex align-center align-middle"><span>info@increandi.com</span><img
+                src="assets/img/cursor.svg" alt="" class="d-block d-md-none"></a>
 
 
         <div class="navbar">
@@ -63,8 +64,8 @@
 </header>
 
 <main class="main">
-    <section class="s-banner-home">
-        <div class="container">
+    <section class="s-banner-home --relative">
+        <div class="container overlap">
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                     <h1 class="heading text-uppercase">We build Incredible products!</h1>
@@ -76,12 +77,13 @@
                 </div>
             </div>
         </div>
-
-        <img src="assets/img/decor-1.svg" alt="" class="decor decor-1">
-        <!--<img src="assets/img/decor-1.svg" alt="" class="decor decor-2">-->
+        <img src="assets/img/decor-11.svg" alt="" class="decor decor-2">
+        <!-- <img src="assets/img/decor-1.svg" alt="" class="decor decor-1">
+         <img src="assets/img/decor-2.svg" alt="" class="decor decor-2">-->
     </section>
 
     <section class="section s-cases">
+        <img src="assets/img/decor-3.svg" alt="" class="decor decor-3">
         <div class="container">
             <div class="row align-center">
                 <div class="col-xl-8 col-lg-9 col-md-10 col-sm-11 col-xs-12 text-center">
@@ -193,7 +195,8 @@
     </section>
 
     <section class="section s-services">
-        <div class="container">
+        <div id="particle-canvas"></div>
+        <div class="container overlap">
             <div class="row align-center">
                 <div class="col-xl-8 col-lg-9 col-md-10 col-sm-11 col-xs-12 text-center">
                     <h4 class="heading text-uppercase text-xl animation transition-delay-1">Bring every idea to
@@ -285,10 +288,10 @@
         </div>
     </section>
 
-    <section class="section s-process">
+    <section class="section s-process --relative">
 
         <img src="assets/img/bg-process.svg" alt="" class="decor decor-1">
-        <div class="container">
+        <div class="container overlap">
             <div class="row align-center">
                 <div class="col-xl-8 col-lg-9 col-md-10 col-sm-11 col-xs-12 text-center">
                     <h4 class="heading text-uppercase text-xl animation transition-delay-1">Process</h4>
@@ -300,7 +303,7 @@
             </div>
             <div class="row align-center">
                 <div class="col-xl-10 col-lg-11 col-md-12 col-sm-12 col-xs-12">
-                    <div class="step-item --relative">
+                    <div class="step-item --relative animation transition-delay-4 ">
                         <div class="step__number text-uppercase text-l">STEP 1</div>
                         <div>
                             <div class="step__heading text-uppercase --relative">PLANNING</div>
@@ -318,7 +321,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step-item">
+                    <div class="step-item --relative animation transition-delay-5">
                         <div class="step__number  text-uppercase text-l">STEP 2</div>
                         <div>
                             <div class="step__heading text-uppercase --relative">PLANNING</div>
@@ -330,7 +333,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step-item">
+                    <div class="step-item --relative animation transition-delay-6">
                         <div class="step__number  text-uppercase text-l">STEP 3</div>
                         <div>
                             <div class="step__heading text-uppercase --relative">PLANNING</div>
@@ -342,7 +345,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step-item">
+                    <div class="step-item --relative animation transition-delay-7">
                         <div class="step__number  text-uppercase text-l">STEP 4</div>
                         <div>
                             <div class="step__heading text-uppercase --relative">making</div>
@@ -354,7 +357,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step-item">
+                    <div class="step-item --relative animation transition-delay-8">
                         <div class="step__number  text-uppercase text-l">STEP 3</div>
                         <div>
                             <div class="step__heading text-uppercase --relative">PLANNING</div>
@@ -366,7 +369,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step-item">
+                    <div class="step-item --relative animation transition-delay-9">
                         <div class="step__number  text-uppercase text-l">STEP 4</div>
                         <div>
                             <div class="step__heading text-uppercase --relative">making</div>
@@ -405,7 +408,7 @@
             </div>
         </div>
         <div class="swiper-entry">
-            <div class="container-fluid ">
+            <div class="container-fluid animation transition-delay-5">
                 <div class="row align-center --relative">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex">
                         <div class="swiper-container"
@@ -926,5 +929,296 @@
     });
 </script>
 
+
+<script>
+    $(function () {
+        if ($('#bg-animation').length) {
+            backgroundAnimation();
+        }
+
+        function backgroundAnimation() {
+
+            var width, height, largeHeader, canvas, ctx, points, target, animateHeader = true;
+
+            // Main
+            initHeader();
+            initAnimation();
+            addListeners();
+
+            function initHeader() {
+                width = $('.out').width();
+                height = window.innerHeight;
+                target = {x: width / 2, y: height / 2};
+
+                canvas = document.getElementById('bg-animation');
+                canvas.width = width;
+                canvas.height = height;
+                ctx = canvas.getContext('2d');
+
+                // create points
+                points = [];
+                for (var x = 0; x < width; x = x + width / 10) {
+                    for (var y = 0; y < height; y = y + height / 10) {
+                        var px = x + Math.random() * width / 10;
+                        var py = y + Math.random() * height / 10;
+                        var p = {x: px, originX: px, y: py, originY: py};
+                        points.push(p);
+                    }
+                }
+
+                // for each point find the 5 closest points
+                for (var i = 0; i < points.length; i++) {
+                    var closest = [];
+                    var p1 = points[i];
+                    for (var j = 0; j < points.length; j++) {
+                        var p2 = points[j]
+                        if (!(p1 == p2)) {
+                            var placed = false;
+                            for (var k = 0; k < 5; k++) {
+                                if (!placed) {
+                                    if (closest[k] == undefined) {
+                                        closest[k] = p2;
+                                        placed = true;
+                                    }
+                                }
+                            }
+                            for (var k = 0; k < 5; k++) {
+                                if (!placed) {
+                                    if (getDistance(p1, p2) < getDistance(p1, closest[k])) {
+                                        closest[k] = p2;
+                                        placed = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    p1.closest = closest;
+                }
+
+                // assign a circle to each point
+                for (var i in points) {
+                    var c = new Circle(points[i], 2 + Math.random() * 2, 'rgba(0,0,0,0.2)');
+                    points[i].circle = c;
+                }
+            }
+
+            // Event handling
+            function addListeners() {
+                if (!('ontouchstart' in window)) {
+                    window.addEventListener('mousemove', mouseMove);
+                }
+                window.addEventListener('scroll', scrollCheck);
+                window.addEventListener('resize', resize);
+            }
+
+            function mouseMove(e) {
+                var posx = posy = 0;
+                if (e.pageX || e.pageY) {
+                    posx = e.pageX - (document.body.scrollLeft + document.documentElement.scrollLeft);
+                    posy = e.pageY - (document.body.scrollTop + document.documentElement.scrollTop);
+                } else if (e.clientX || e.clientY) {
+                    posx = e.clientX;
+                    posy = e.clientY;
+                }
+                target.x = posx;
+                target.y = posy;
+            }
+
+            function scrollCheck() {
+                if ($(document).scrollTop() > height / 2) animateHeader = true;
+                else animateHeader = false;
+            }
+
+            function resize() {
+                width = $('.out').width();
+                height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+            }
+
+            // animation
+            function initAnimation() {
+                animate();
+                for (var i in points) {
+                    shiftPoint(points[i]);
+                }
+            }
+
+            function animate() {
+                if (animateHeader) {
+                    ctx.clearRect(0, 0, width, height);
+                    for (var i in points) {
+                        // detect points in range
+                        if (Math.abs(getDistance(target, points[i])) < 4000) {
+                            points[i].active = 0.3;
+                            points[i].circle.active = 0.6;
+                        } else if (Math.abs(getDistance(target, points[i])) < 20000) {
+                            points[i].active = 0.1;
+                            points[i].circle.active = 0.3;
+                        } else if (Math.abs(getDistance(target, points[i])) < 40000) {
+                            points[i].active = 0.02;
+                            points[i].circle.active = 0.1;
+                        } else {
+                            points[i].active = 0;
+                            points[i].circle.active = 0;
+                        }
+
+                        drawLines(points[i]);
+                        points[i].circle.draw();
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+
+            function shiftPoint(p) {
+                TweenLite.to(p, 1 + 1 * Math.random(), {
+                    x: p.originX - 50 + Math.random() * 100,
+                    y: p.originY - 50 + Math.random() * 100, ease: Circ.easeInOut,
+                    onComplete: function () {
+                        shiftPoint(p);
+                    }
+                });
+            }
+
+            // Canvas manipulation
+            function drawLines(p) {
+                if (!p.active) return;
+                for (var i in p.closest) {
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p.closest[i].x, p.closest[i].y);
+                    ctx.strokeStyle = 'rgba(164,164,164,' + p.active + ')';
+                    ctx.stroke();
+                }
+            }
+
+            function Circle(pos, rad, color) {
+                var _this = this;
+
+                // constructor
+                (function () {
+                    _this.pos = pos || null;
+                    _this.radius = rad || null;
+                    _this.color = color || null;
+                })();
+
+                this.draw = function () {
+                    if (!_this.active) return;
+                    ctx.beginPath();
+                    ctx.arc(_this.pos.x, _this.pos.y, _this.radius, 0, 2 * Math.PI, false);
+                    ctx.fillStyle = 'rgba(164,164,164,' + _this.active + ')';
+                    ctx.fill();
+                };
+            }
+
+            // Util
+            function getDistance(p1, p2) {
+                return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
+            }
+        }
+
+    });
+</script>
+
+<script>
+    // particle.min.js hosted on GitHub
+    // Scroll down for initialisation code
+
+    !function (a) {
+        var b = "object" == typeof self && self.self === self && self || "object" == typeof global && global.global === global && global;
+        "function" == typeof define && define.amd ? define(["exports"], function (c) {
+            b.ParticleNetwork = a(b, c)
+        }) : "object" == typeof module && module.exports ? module.exports = a(b, {}) : b.ParticleNetwork = a(b, {})
+    }(function (a, b) {
+        var c = function (a) {
+            this.canvas = a.canvas, this.g = a.g, this.particleColor = a.options.particleColor, this.x = Math.random() * this.canvas.width, this.y = Math.random() * this.canvas.height, this.velocity = {
+                x: (Math.random() - .5) * a.options.velocity,
+                y: (Math.random() - .5) * a.options.velocity
+            }
+        };
+        return c.prototype.update = function () {
+            (this.x > this.canvas.width + 20 || this.x < -20) && (this.velocity.x = -this.velocity.x), (this.y > this.canvas.height + 20 || this.y < -20) && (this.velocity.y = -this.velocity.y), this.x += this.velocity.x, this.y += this.velocity.y
+        }, c.prototype.h = function () {
+            this.g.beginPath(), this.g.fillStyle = this.particleColor, this.g.globalAlpha = .7, this.g.arc(this.x, this.y, 1.5, 0, 2 * Math.PI), this.g.fill()
+        }, b = function (a, b) {
+            this.i = a, this.i.size = {
+                width: this.i.offsetWidth,
+                height: this.i.offsetHeight
+            }, b = void 0 !== b ? b : {}, this.options = {
+                particleColor: void 0 !== b.particleColor ? b.particleColor : "#fff",
+                background: void 0 !== b.background ? b.background : "#1a252f",
+                interactive: void 0 !== b.interactive ? b.interactive : !0,
+                velocity: this.setVelocity(b.speed),
+                density: this.j(b.density)
+            }, this.init()
+        }, b.prototype.init = function () {
+            if (this.k = document.createElement("div"), this.i.appendChild(this.k), this.l(this.k, {
+                position: "absolute",
+                top: 0,
+                left: 0,
+                bottom: 0,
+                right: 0,
+                "z-index": 1
+            }), /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(this.options.background)) this.l(this.k, {background: this.options.background}); else {
+                if (!/\.(gif|jpg|jpeg|tiff|png)$/i.test(this.options.background)) return console.error("Please specify a valid background image or hexadecimal color"), !1;
+                this.l(this.k, {
+                    background: 'url("' + this.options.background + '") no-repeat center',
+                    "background-size": "cover"
+                })
+            }
+            if (!/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(this.options.particleColor)) return console.error("Please specify a valid particleColor hexadecimal color"), !1;
+            this.canvas = document.createElement("canvas"), this.i.appendChild(this.canvas), this.g = this.canvas.getContext("2d"), this.canvas.width = this.i.size.width, this.canvas.height = this.i.size.height, this.l(this.i, {position: "relative"}), this.l(this.canvas, {
+                "z-index": "20",
+                position: "relative"
+            }), window.addEventListener("resize", function () {
+                return this.i.offsetWidth === this.i.size.width && this.i.offsetHeight === this.i.size.height ? !1 : (this.canvas.width = this.i.size.width = this.i.offsetWidth, this.canvas.height = this.i.size.height = this.i.offsetHeight, clearTimeout(this.m), void (this.m = setTimeout(function () {
+                    this.o = [];
+                    for (var a = 0; a < this.canvas.width * this.canvas.height / this.options.density; a++) this.o.push(new c(this));
+                    this.options.interactive && this.o.push(this.p), requestAnimationFrame(this.update.bind(this))
+                }.bind(this), 500)))
+            }.bind(this)), this.o = [];
+            for (var a = 0; a < this.canvas.width * this.canvas.height / this.options.density; a++) this.o.push(new c(this));
+            this.options.interactive && (this.p = new c(this), this.p.velocity = {
+                x: 0,
+                y: 0
+            }, this.o.push(this.p), this.canvas.addEventListener("mousemove", function (a) {
+                this.p.x = a.clientX - this.canvas.offsetLeft, this.p.y = a.clientY - this.canvas.offsetTop
+            }.bind(this)), this.canvas.addEventListener("mouseup", function (a) {
+                this.p.velocity = {
+                    x: (Math.random() - .5) * this.options.velocity,
+                    y: (Math.random() - .5) * this.options.velocity
+                }, this.p = new c(this), this.p.velocity = {x: 0, y: 0}, this.o.push(this.p)
+            }.bind(this))), requestAnimationFrame(this.update.bind(this))
+        }, b.prototype.update = function () {
+            this.g.clearRect(0, 0, this.canvas.width, this.canvas.height), this.g.globalAlpha = 1;
+            for (var a = 0; a < this.o.length; a++) {
+                this.o[a].update(), this.o[a].h();
+                for (var b = this.o.length - 1; b > a; b--) {
+                    var c = Math.sqrt(Math.pow(this.o[a].x - this.o[b].x, 2) + Math.pow(this.o[a].y - this.o[b].y, 2));
+                    c > 120 || (this.g.beginPath(), this.g.strokeStyle = this.options.particleColor, this.g.globalAlpha = (120 - c) / 120, this.g.lineWidth = .7, this.g.moveTo(this.o[a].x, this.o[a].y), this.g.lineTo(this.o[b].x, this.o[b].y), this.g.stroke())
+                }
+            }
+            0 !== this.options.velocity && requestAnimationFrame(this.update.bind(this))
+        }, b.prototype.setVelocity = function (a) {
+            return "fast" === a ? 1 : "slow" === a ? .33 : "none" === a ? 0 : .66
+        }, b.prototype.j = function (a) {
+            return "high" === a ? 5e3 : "low" === a ? 2e4 : isNaN(parseInt(a, 10)) ? 1e4 : a
+        }, b.prototype.l = function (a, b) {
+            for (var c in b) a.style[c] = b[c]
+        }, b
+    });
+
+    // Initialisation
+
+    var canvasDiv = document.getElementById('particle-canvas');
+    var options = {
+        particleColor: '#C4C4C4',
+        background: '#fff',
+        interactive: true,
+        speed: 'medium',
+        density: 'high'
+    };
+    var particleCanvas = new ParticleNetwork(canvasDiv, options);
+</script>
 </body>
 </html>

@@ -2,6 +2,15 @@
 @import "../abstracts/variables";
 
 
+#particle-canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute !important;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
 .icon {
   padding-left: 30px;
   position: relative;
@@ -76,7 +85,11 @@
       }
 
       &-2 {
-
+        bottom: 0;
+        left: 0;
+        @media (max-width: $breakpoint-xl) {
+          width: 600px;
+        }
       }
     }
   }
@@ -172,6 +185,16 @@
     margin-top: 70px;
   }
 
+  .decor {
+    &-3 {
+      top: -87px;
+      left: 0;
+      @media (max-width: $breakpoint-xl) {
+        width: 600px;
+        top: -60px;
+      }
+    }
+  }
 
 }
 
@@ -351,6 +374,9 @@
 
 .s-process {
   padding: 90px 0;
+  @media (max-width: $breakpoint-md) {
+    padding: 60px 0;
+  }
 
   & .text {
     margin-bottom: 103px;
@@ -366,6 +392,32 @@
       grid-template-columns: 75px 1fr;
       display: grid;
       gap: 10px;
+      @media (max-width: $breakpoint-md) {
+        width: 100%;
+        padding-left: 30px;
+      }
+
+      &:not(&:last-child) {
+        @media (max-width: $breakpoint-md) {
+          margin-bottom: 20px;
+        }
+      }
+
+      &:before {
+        content: '';
+        width: 6px;
+        height: calc(100% - 82px);
+        background-color: #EFEEE3;
+        border-radius: 40px;
+        position: absolute;
+        left: -3px;
+        bottom: 23px;
+
+        @media (max-width: $breakpoint-md) {
+          height: calc(100% - 25px);
+          bottom: -12px;
+        }
+      }
 
       &:after {
         content: '';
@@ -376,6 +428,12 @@
         position: absolute;
         top: 7px;
         right: -11px;
+        @media (max-width: $breakpoint-md) {
+          width: 16px;
+          height: 16px;
+          left: -8px;
+          right: auto;
+        }
       }
 
       &:nth-child(odd) {
@@ -389,38 +447,40 @@
           content: '';
           left: -11px;
           right: auto;
+          @media (max-width: $breakpoint-md) {
+            left: -8px;
+          }
         }
 
-        &:before {
-          content: '';
-          width: 6px;
-          height: calc(100% - 82px);
-          background-color: #EFEEE3;
-          border-radius: 40px;
-          position: absolute;
-          left: -3px;
-          bottom: 30px;
-        }
       }
 
       &:nth-child(even) {
         text-align: right;
         padding-right: 54px;
-        @media (max-width: $breakpoint-md) {
-          padding-right: 30px;
-        }
+
         grid-auto-flow: dense;
         direction: rtl;
+        @media (max-width: $breakpoint-md) {
+          padding-right: 30px;
+          grid-auto-flow: unset;
+          direction: ltr;
+          text-align: left;
+        }
 
         &:before {
           content: '';
-          width: 6px;
-          height: calc(100% - 82px);
-          background-color: #EFEEE3;
-          border-radius: 40px;
-          position: absolute;
           right: -3px;
-          bottom: 30px;
+          left: auto;
+          /* width: 6px;
+           height: calc(100% - 82px);
+           background-color: #EFEEE3;
+           border-radius: 40px;
+           position: absolute;
+           right: -3px;
+           bottom: 30px;*/
+          @media (max-width: $breakpoint-md) {
+            left: -3px;
+          }
         }
       }
 
@@ -439,6 +499,9 @@
     &__heading {
       margin-bottom: 29px;
       @include fontSize(18, 30);
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 15px;
+      }
     }
 
     &__desc {
@@ -449,6 +512,18 @@
       padding-top: 6px;
       color: $accentColor;
       font-weight: 600;
+      @media (max-width: $breakpoint-md) {
+        padding-top: 3px;
+      }
+    }
+  }
+
+  & .decor {
+    &-1 {
+      left: 0;
+      top: -20%;
+      max-width: 469px;
+      width: 30%;
     }
   }
 }
@@ -525,6 +600,16 @@
     @include fontSize(24, 30);
     color: #77C9C8;
     margin-right: 52px;
+    @media (max-width: $breakpoint-md) {
+      margin: 0 0 30px 0;
+    }
+  }
+
+  &__form {
+    @media (max-width: $breakpoint-md) {
+      max-width: 400px;
+      margin: 0 auto;
+    }
   }
 
   & .form-control {
@@ -572,3 +657,18 @@ div[class*="col-"].scroll-animation {
   }
 }
 
+@media only screen and (min-width: 768px) {
+  #bg-animation {
+    display: none;
+    position: fixed;
+    left: 50%;
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    background: #ffffff;
+  }
+}

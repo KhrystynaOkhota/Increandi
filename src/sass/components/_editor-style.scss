@@ -5,51 +5,25 @@
   margin-bottom: 20px;
 
   &-style {
-    font-family: 'Gilroy', sans-serif;
+    font-family: 'Jost', sans-serif;
     font-weight: normal;
 
     & p {
       font-weight: normal;
-      @include fontSize(12, 14);
-      line-height: 1.7;
-      letter-spacing: 0.02em;
-
+      @include fontSize(18, 24);
+      line-height: 1.2;
       margin-bottom: 24px;
-
+      color: #999996;
     }
 
     & h2, & h3, & h4, & h5, & h6 {
-      font-weight: bold;
+      font-weight: 400;
       margin-bottom: 16px;
+      font-family: 'Jost', sans-serif;
+      @include fontSize(24, 30);
+      text-transform: uppercase;
     }
 
-    & h2 {
-      @include fontSize(20, 24);
-      line-height: 1.5;
-    }
-
-    & h3 {
-      font-size: 30px;
-      line-height: 47px;
-      margin-bottom: 8px;
-    }
-
-    & h4 {
-      @include fontSize(16, 18);
-      line-height: 1.444;
-    }
-
-    & h5 {
-      @include fontSize(14, 16);
-    }
-
-    & h6 {
-      @include fontSize(12, 14);
-    }
-
-    h4, h5, h6 {
-      margin-bottom: 24px;
-    }
 
     & a {
       color: $accentColor;
@@ -114,11 +88,10 @@
 
       & li {
         font-weight: normal;
-        font-size: 14px;
-        @include fontSize(10, 14);
+        @include fontSize(18, 24);
         line-height: 1.25;
         letter-spacing: 0.02em;
-        color: #010101;
+        color: #999996;
         position: relative;
         padding-left: 15px;
         margin-bottom: 12px;
@@ -139,7 +112,7 @@
       & li {
         &:before {
           content: "";
-
+          background-color: $accentColor;
           -webkit-transform: translateY(-50%);
           -ms-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -534,6 +507,7 @@
     @include transition(.3);
     position: relative;
     color: $accentColor;
+
     &:after {
       content: '';
       width: 100%;

@@ -11,8 +11,15 @@
   }
 }
 
-.overflow-hidden {
-  overflow: hidden;
+
+html{
+  position: static;
+  &.overflow-hidden {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+  }
+
 }
 
 html.overflow-hidden body {
@@ -107,7 +114,7 @@ body {
 
 
 .section {
-//  overflow: hidden;
+  //  overflow: hidden;
   position: relative;
 
   & .heading {
@@ -124,7 +131,7 @@ body {
 
 
 .main {
-overflow: hidden;
+  overflow: hidden;
 
   &-wrapper {
     position: relative;

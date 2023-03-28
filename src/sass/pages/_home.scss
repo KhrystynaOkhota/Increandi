@@ -2,13 +2,61 @@
 @import "../abstracts/variables";
 
 
-#particle-canvas {
-  width: 100%;
-  height: 100%;
-  position: absolute !important;
-  left: 0;
-  top: 0;
-  z-index: 1;
+#particles-js {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  #particles-js {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+  }
+  .up {
+    -webkit-transform: translate(0, 60%);
+    -ms-transform: translate(0, 60%);
+    transform: translate(0, 60%);
+    opacity: 0;
+
+    &.animated {
+      -webkit-transform: translate(0, 0%);
+      -ms-transform: translate(0, 0%);
+      transform: translate(0, 0%);
+      opacity: 1
+    }
+  }
+
+  .left {
+    -webkit-transform: translateX(-60%);
+    -ms-transform: translateX(-60%);
+    transform: translateX(-60%);
+    opacity: 0;
+
+    &.animated {
+      -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+      opacity: 1
+    }
+  }
+  .right {
+    -webkit-transform: translateX(60%);
+    -ms-transform: translateX(60%);
+    transform: translateX(60%);
+    opacity: 0;
+
+    &.animated {
+      -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+      opacity: 1
+    }
+  }
 }
 
 .icon {
@@ -39,7 +87,6 @@
     height: 2px;
   }
 }
-
 
 .s-banner {
   padding: 73px 0 64px 0;
@@ -90,6 +137,9 @@
         @media (max-width: $breakpoint-xl) {
           width: 600px;
         }
+        @media (max-width: $breakpoint-md) {
+          width: 400px;
+        }
       }
     }
   }
@@ -108,7 +158,6 @@
   }
 }
 
-
 .case {
   &__item {
     display: -webkit-box;
@@ -117,6 +166,9 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column-reverse;
+    }
   }
 
   &__content {
@@ -137,6 +189,7 @@
     -webkit-transition: 0.25s ease-in;
     -o-transition: 0.25s ease-in;
     transition: 0.25s ease-in;
+
   }
 
   &__img {
@@ -152,10 +205,17 @@
       position: relative;
       width: 100%;
       padding-bottom: 38%;
+      @media (max-width: $breakpoint-md) {
+        margin-bottom: 30px;
+        min-height: 250px;
+      }
     }
   }
 
   &__info {
+    @media (min-width: $breakpoint-md) {
+      padding-right: 40px;
+    }
     &-heading {
       @include fontSize(22, 30);
       margin-bottom: 16px;
@@ -169,7 +229,9 @@
 
 .s-cases {
   padding: 97px 0;
-
+  @media (max-width: $breakpoint-md) {
+    padding:60px 0 90px 0;
+  }
   & .heading {
 
   }
@@ -183,19 +245,30 @@
 
   & .btn-primary {
     margin-top: 70px;
+    @media (max-width: $breakpoint-md) {
+      margin-top: 30px;
+    }
   }
 
   .decor {
     &-3 {
       top: -87px;
       left: 0;
+
       @media (max-width: $breakpoint-xl) {
         width: 600px;
         top: -60px;
       }
+      @media (max-width: $breakpoint-md) {
+        width: 400px;
+        top: -38px;
+      }
     }
   }
 
+  .swiper-pagination {
+    margin-top: 10px;
+  }
 }
 
 .services-card {
@@ -395,6 +468,9 @@
       @media (max-width: $breakpoint-md) {
         width: 100%;
         padding-left: 30px;
+        grid-template-columns: 1fr;
+        display: grid;
+        gap: 1px;
       }
 
       &:not(&:last-child) {
@@ -524,6 +600,7 @@
       top: -20%;
       max-width: 469px;
       width: 30%;
+      z-index: 2;
     }
   }
 }
@@ -597,7 +674,7 @@
 
   &__heading {
     font-weight: 600;
-    @include fontSize(24, 30);
+    @include fontSize(20, 30);
     color: #77C9C8;
     margin-right: 52px;
     @media (max-width: $breakpoint-md) {
@@ -642,7 +719,7 @@ div[class*="col-"].scroll-animation {
   opacity: 0;
 }
 
-.animation {
+/*.animation {
 
   -webkit-transform: translate(0, 60%);
   -ms-transform: translate(0, 60%);
@@ -656,19 +733,4 @@ div[class*="col-"].scroll-animation {
     opacity: 1
   }
 }
-
-@media only screen and (min-width: 768px) {
-  #bg-animation {
-    display: none;
-    position: fixed;
-    left: 50%;
-    -moz-transform: translate(-50%, 0);
-    -ms-transform: translate(-50%, 0);
-    -webkit-transform: translate(-50%, 0);
-    transform: translate(-50%, 0);
-    top: 0;
-    z-index: 1;
-    width: 100%;
-    background: #ffffff;
-  }
-}
+*/

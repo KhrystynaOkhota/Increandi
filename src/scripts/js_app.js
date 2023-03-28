@@ -213,31 +213,13 @@ $(window).on('scroll', function () {
 });
 
 
-shareButton = document.querySelectorAll(".share-button");
-if (shareButton.length) {
-    shareButton[0].addEventListener("click", (e) => {
-        for (let i = 0; i < shareButton.length; i++) {
-            shareButton[i].classList.toggle("open")
-            shareButton[0].classList.remove("sent")
-        }
-    })
-};
 
-for (let i = 1; i < shareButton.length; i++) {
-
-    shareButton[i].addEventListener("click", (e) => {
-
-        for (let i = 0; i < shareButton.length; i++) {
-            shareButton[i].classList.toggle("open")
-        }
-        shareButton[0].classList.toggle("sent")
-    })
-}
 jQuery(function () {
 
     $(".menu-btn").on("click", function () {
         $(this).toggleClass("active"),
-            $(".navbar").toggleClass("is-visible")
+            $(".navbar").toggleClass("is-visible"),
+            $("html").toggleClass("overflow-hidden")
     })
 
 });

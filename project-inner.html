@@ -35,32 +35,31 @@
             <img src="assets/img/logo.svg" alt="logo company" class="header-logo__icon">
         </a>
 
-
-        <a href="mailto:info@increandi.com" class="header-email"><span>info@increandi.com</span></a>
-
+        <a href="mailto:info@increandi.com" class="header-email d-flex align-center align-middle"><span>info@increandi.com</span><img
+                src="assets/img/cursor.svg" alt="" class="d-block d-md-none"></a>
 
         <div class="navbar">
             <nav class="main-navigation">
                 <ul class="menu">
                     <li class="menu-item  current-menu-item">
-                        <a href="about.html">About Us</a>
+                        <a href="index.html#home">Home</a>
                     </li>
                     <li class="menu-item">
-                        <a href="projects.html">Programs</a>
+                        <a href="index.html#services">Services</a>
                     </li>
                     <li class="menu-item">
-                        <a href="blog.html">News</a>
+                        <a href="index.html#about">Why Increandi? </a>
                     </li>
 
                     <li class="menu-item">
-                        <a href="contacts.html">Contact</a>
+                        <a href="index.html#process">Process</a>
                     </li>
                 </ul>
             </nav>
         </div>
-
     </div>
 </header>
+
 <main class="main">
     <section class="s-banner banner-inner">
         <div class="container">
@@ -69,7 +68,7 @@
                     <h1 class="heading text-uppercase">Prototyping</h1>
                     <div class="text">Our best orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                     </div>
-                    <button class="btn-primary">Request a Quote</button>
+                    <button class="btn-primary open-popup" data-rel="cta">Request a Quote</button>
                 </div>
             </div>
         </div>
@@ -100,7 +99,7 @@
             <div class="row align-middle">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="swiper-container"
-                         data-options='{"loop":true,"slidesPerView": 1, "spaceBetween": 2,"centeredSlides": true, "speed": 1200,"breakpoints": { "500": {"slidesPerView": 2, "spaceBetween": 2}, "767": {"slidesPerView": 3, "spaceBetween": 20}, "1200": {"slidesPerView": 3, "spaceBetween": 40}}}'>
+                         data-options='{"loop":true,"slidesPerView": 1, "spaceBetween": 0,"centeredSlides": true, "speed": 1200,"breakpoints": { "500": {"slidesPerView": 2, "spaceBetween": 0}, "767": {"slidesPerView": 3, "spaceBetween": 0}, "1200": {"slidesPerView": 3, "spaceBetween": 0}}}'>
 
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
@@ -235,47 +234,47 @@
 <footer class="footer">
     <div class="footer__content">
         <div class="container ">
-            <div class="row ">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 logo__col">
+            <div class="row align-center">
+                <div class="col-xl-6 col-lg-6 col-md-5 col-sm-12 col-xs-12">
                     <a href="index.html" class=" logo__wrap align-middle">
                         <img src="assets/img/logo.svg" alt="logo company" class="logo__icon">
                     </a>
                 </div>
 
-                <div class="footer__col col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6 ">
+                <div class="footer__col col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-6 ">
                     <div class="footer-item">
                         <h5 class="footer-item__title">Navigate</h5>
 
                         <ul class="menu">
                             <li class="menu-item">
-                                <a href="">Home</a>
+                                <a href="#home">Home</a>
                             </li>
                             <li class="menu-item">
-                                <a href="">Services</a>
+                                <a href="#services">Services</a>
                             </li>
                             <li class="menu-item">
-                                <a href="">Why Increandi? </a>
+                                <a href="#about">Why Increandi? </a>
                             </li>
                             <li class="menu-item">
-                                <a href="">Process</a>
+                                <a href="#process">Process</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="footer__col col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6 ">
+                <div class="footer__col col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-6 ">
                     <div class="footer-item">
                         <h5 class="footer-item__title">Social</h5>
                         <ul class="menu">
                             <li class="menu-item">
-                                <a href="">Facebook</a>
+                                <a href="" target="_blank">Facebook</a>
                             </li>
                             <li class="menu-item">
-                                <a href="">Linkedin</a>
+                                <a href="" target="_blank">Linkedin</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="footer__col col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-4 ">
+                <div class="footer__col col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-6 ">
                     <div class="footer-item">
                         <h5 class="footer-item__title">Get in touch</h5>
 
@@ -297,7 +296,7 @@
         <div class="container ">
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                    <div class="footer__copyright--text ">@ Copyright 2022. Ltd. All Rights Reserved.</div>
+                    <div class="footer__copyright--text">@ Copyright 2022. Ltd. All Rights Reserved.</div>
                 </div>
             </div>
         </div>
@@ -312,101 +311,38 @@
 <div class="popup-wrapper">
     <div class="bg-layer"></div>
 
-    <div class="popup-content" data-rel="more">
+    <div class="popup-content" data-rel="cta">
         <div class="layer-close"></div>
 
 
-        <div class="popup-container cv section">
+        <div class="popup-container">
             <div class="btn-close d-flex align-middle align-center"><i class="icon-close"></i></div>
 
-            <div class="row m-row">
-                <div class="column col-xl-4 col-lg-4 col-md-6 col-xs-12">
-                    <img src="assets/img/about.png" alt="" class="cv-img d-none d-md-block">
-                </div>
-                <div class="column col-xl-6 col-lg-6 col-md-6 col-xs-12">
-                    <div class="cv-about">
-                        <h4 class="heading text-xl text-uppercase --relative">
-                            Dr.Olena Andreyki <span></span>
-                        </h4>
-                        <img src="assets/img/about.png" alt="" class=" cv-img d-block d-md-none">
-                        <ul class="personal-info">
+            <div class="popup-form">
+                <form>
 
 
-                            <li class="text-m">
-                                <span>Name:</span>
-                                Olena Oleksiyivna Andriykiv
-                            </li>
-                            <li class="text-m">
-                                <span>Place of Birth: </span>
-                                Chortkiv, Ternopil region, Ukraine
-                            </li>
-                            <li class="text-m">
-                                <span>FB/Instagram: </span>
-                                <a href="https://www.facebook.com/andreykiv.olena">https://www.facebook.com/andreykiv.olena</a>
-                            </li>
-                            <li class="text-m">
-                                <span> E-mail:</span>
-                                <a href="mailto:support@gmail.com">support@gmail.com</a>
-                            </li>
-                            <li class="text-m">
-                                <span> Education:</span>
-                                <p>Medical College with a specialization in Obstetrics and Gynecology (1991-1994) Honor
-                                    Diploma </p>
-                                <p>Lviv Medical University (1994-1999)</p>
-                                <p> Completed  internship at medical institutions in Lviv.</p>
-
-                            </li>
-                        </ul>
+                    <div class="form-control">
+                        <label for="e-mail" class="form-control__label">Your Email</label>
+                        <input class="form-control__input " id="e-mail" type="email" name="" value=""
+                               placeholder="Enter your email" title="" required="">
                     </div>
-                </div>
-            </div>
-            <div class="row m-row cv-experience__row">
-                <div class="column col-xl-6 col-lg-6 col-md-6 col-xs-12">
-                    <div class="cv-experience">
-                        <div class="heading text-m">Work Experience:</div>
-                        <div class="text text-m">
 
-                            <p>Clinics in Lviv and Kyiv (2001-2016)</p>
-                            <p>During the COVID-19 pandemic in 2020-2021, Olena Andriykiv was part of a group of extreme
-                                medicine doctors who provided childbirth care to women infected with COVID-19. All
-                                mothers and babies she assisted survived.</p>
-                            <p> Founder of "Women's Health" private medical center, Maternity School, and LLC HealthX
-                                Medical Clinic (2016-present).  In the clinic, scientists from Lviv Medical University
-                                provide assistance to women during the prenatal period using the latest methods.</p>
-                            <p>Memberships:</p>
-                            <p> Ukrainian Business Women's Association, the oversee the healthcare activities.</p>
-                        </div>
+                    <div class="form-control">
+                        <label for="message" class="form-control__label">Message</label>
+                        <textarea id="message" class="form-control__textarea" name="message" rows="6"
+                                  placeholder="Enter your message" required=""></textarea>
                     </div>
-                </div>
-                <div class="column col-xl-6 col-lg-6 col-md-6 col-xs-12">
-                    <div class="cv-experience">
-                        <div class="heading text-m">Volunteer Work</div>
-                        <div class="text text-m">
 
-                            <p>Clinics in Lviv and Kyiv (2001-2016)</p>
-                            <p>During the COVID-19 pandemic in 2020-2021, Olena Andriykiv was part of a group of extreme
-                                medicine doctors who provided childbirth care to women infected with COVID-19. All
-                                mothers and babies she assisted survived.</p>
-                            <p> Founder of "Women's Health" private medical center, Maternity School, and LLC HealthX
-                                Medical Clinic (2016-present).  In the clinic, scientists from Lviv Medical University
-                                provide assistance to women during the prenatal period using the latest methods.</p>
-                            <p>Memberships:</p>
-                            <p> Ukrainian Business Women's Association, the oversee the healthcare activities.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column col-xl-12 col-lg-12 col-md-12 col-xs-12 d-flex align-center">
-                    <div class="btn-back btn-primary text-uppercase text-center">Back</div>
-                </div>
+                    <input type="submit" value="Send" class="btn btn-primary form-control__btn">
+
+                </form>
             </div>
         </div>
 
 
     </div>
 </div>
-
 
 </body>
 </html>

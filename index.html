@@ -35,10 +35,8 @@
             <img src="assets/img/logo.svg" alt="logo company" class="header-logo__icon">
         </a>
 
-
         <a href="mailto:info@increandi.com" class="header-email d-flex align-center align-middle"><span>info@increandi.com</span><img
                 src="assets/img/cursor.svg" alt="" class="d-block d-md-none"></a>
-
 
         <div class="navbar">
             <nav class="main-navigation">
@@ -59,11 +57,11 @@
                 </ul>
             </nav>
         </div>
-
     </div>
 </header>
+
 <main class="main">
-    <section class="s-banner-home --relative">
+    <section class="s-banner-home --relative" id="home">
         <div class="container overlap">
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
@@ -124,7 +122,7 @@
                                         </ul>
 
 
-                                        <button class="btn-primary">Request a Quote</button>
+                                        <button class="btn-primary open-popup" data-rel="cta">Request a Quote</button>
                                     </div>
                                     <div class="case__img-wrap">
                                         <img class="case__img"
@@ -153,8 +151,7 @@
                                         </p>
 
 
-
-                                        <button class="btn-primary">Request a Quote</button>
+                                        <button class="btn-primary open-popup" data-rel="cta">Request a Quote</button>
                                     </div>
                                     <div class="case__img-wrap">
                                         <img class="case__img"
@@ -189,7 +186,7 @@
                                         </ul>
 
 
-                                        <button class="btn-primary">Request a Quote</button>
+                                        <button class="btn-primary open-popup" data-rel="cta">Request a Quote</button>
                                     </div>
                                     <div class="case__img-wrap">
                                         <img class="case__img"
@@ -207,12 +204,8 @@
         </div>
     </section>
 
-    <section class="section s-services">
-
-
+    <section class="section s-services" id="services">
         <div id="particles-js"></div>
-
-
         <div class="container overlap">
             <div class="row align-center">
                 <div class="col-xl-8 col-lg-9 col-md-10 col-sm-11 col-xs-12 text-center">
@@ -311,7 +304,7 @@
         </div>
     </section>
 
-    <section class="section s-process --relative">
+    <section class="section s-process --relative" id="process">
 
         <img src="assets/img/bg-process.svg" alt="" class="decor decor-1">
         <div class="container overlap">
@@ -518,7 +511,7 @@
         </div>
     </section>
 
-    <section class="section s-about achievements-wrapp">
+    <section class="section s-about achievements-wrapp" id="about">
         <div class="container">
             <div class="row align-center">
                 <div class="col-xl-8 col-lg-9 col-md-10 col-sm-11 col-xs-12 text-center">
@@ -624,16 +617,16 @@
 
                         <ul class="menu">
                             <li class="menu-item">
-                                <a href="">Home</a>
+                                <a href="#home">Home</a>
                             </li>
                             <li class="menu-item">
-                                <a href="">Services</a>
+                                <a href="#services">Services</a>
                             </li>
                             <li class="menu-item">
-                                <a href="">Why Increandi? </a>
+                                <a href="#about">Why Increandi? </a>
                             </li>
                             <li class="menu-item">
-                                <a href="">Process</a>
+                                <a href="#process">Process</a>
                             </li>
                         </ul>
                     </div>
@@ -673,7 +666,7 @@
         <div class="container ">
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                    <div class="footer__copyright--text ">@ Copyright 2022. Ltd. All Rights Reserved.</div>
+                    <div class="footer__copyright--text">@ Copyright 2022. Ltd. All Rights Reserved.</div>
                 </div>
             </div>
         </div>
@@ -720,7 +713,6 @@
 
     </div>
 </div>
-
 
 <script>
 
@@ -931,8 +923,7 @@
 
 </script>
 
-
-<script>
+<!--<script>
     $('a.onScroll').on('click', function () {
         event.preventDefault();
         var a = $(this).attr('href');
@@ -942,16 +933,12 @@
                 $('body,html').animate({
                     scrollTop: t
                 }, 1000);
-                if ($('.header .navigation-mob').hasClass('active')) {
-                    $('.header .navigation-mob').removeClass('active');
-                    $('.header .btn-menu').removeClass('active');
-                }
             }
         } else {
             location.href = a;
         }
     });
-</script>
+</script>-->
 
 
 <!--<script>
@@ -1359,5 +1346,29 @@
 
 
 </script>
+
+<script>
+    $(function () {
+        $('a[href*="#"]:not([href="#"])').click(function () {
+            $('.menu-item').removeClass('current-menu-item');
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top - $('.header').innerHeight()
+                    }, 1000);
+                    $(this).parents('.menu-item').addClass('current-menu-item');
+                    $(".menu-btn").removeClass("active");
+                    $(".navbar").removeClass("is-visible");
+
+                    $('html').removeClass('overflow-hidden');
+                    return false;
+                }
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
